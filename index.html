@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI India | Visionary Assistant</title>
+    <meta name="description" content="AI India - A premium, high-performance assistant powered by Gemini 3 Flash. Built for the future of India.">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AI India | Visionary Assistant">
+    <meta property="og:description" content="Experience the next generation of AI with an Indian soul.">
+    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --saffron: #FF9933;
+            --white: #FFFFFF;
+            --emerald: #138808;
+            --navy: #000080;
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --border-light: rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            /* Normal Font Stack */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-light);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        /* Animated Background Base - Light Mode */
+        .bg-mesh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .bg-mesh::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Ffilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(2%, 2%) scale(1.05); }
+            66% { transform: translate(-1%, 3%) scale(0.95); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        .bg-mesh.theme-cosmic {
+            background-color: #ffffff;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(255, 153, 51, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(19, 136, 8, 0.15) 0px, transparent 50%),
+                radial-gradient(at 50% 0%, rgba(0, 0, 128, 0.05) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(255, 255, 255, 1) 0px, transparent 100%);
+        }
+
+        .bg-mesh.theme-grid {
+            background-color: #ffffff;
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .bg-mesh.theme-golden {
+            background-color: #fffcf5;
+            background-image: 
+                radial-gradient(at 100% 0%, rgba(255, 153, 51, 0.2) 0px, transparent 60%),
+                radial-gradient(at 0% 100%, rgba(255, 255, 255, 1) 0px, transparent 80%),
+                radial-gradient(at 50% 50%, rgba(255, 153, 51, 0.05) 0px, transparent 100%);
+        }
+
+        .bg-mesh.theme-navy {
+            background-color: #f8fafc;
+            background-image: 
+                radial-gradient(at 50% 0%, rgba(0, 0, 128, 0.08) 0px, transparent 60%),
+                radial-gradient(at 100% 100%, rgba(0, 0, 128, 0.03) 0px, transparent 50%);
+        }
+
+        .bg-mesh.theme-aurora {
+            background-color: #ffffff;
+            background-image: 
+                radial-gradient(at 20% 20%, rgba(255, 153, 51, 0.15) 0px, transparent 40%),
+                radial-gradient(at 80% 20%, rgba(19, 136, 8, 0.15) 0px, transparent 40%),
+                radial-gradient(at 50% 80%, rgba(0, 0, 128, 0.1) 0px, transparent 40%);
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .text-gradient-in {
+            background: linear-gradient(to right, var(--saffron), #000, var(--emerald));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        pre, code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.41.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="mesh" class="bg-mesh theme-cosmic"></div>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

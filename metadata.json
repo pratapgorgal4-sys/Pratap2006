@@ -1,0 +1,8 @@
+{
+  "name": "AI India Pro",
+  "description": "Premium multi-modal assistant for generation, editing, and coding. Built with Gemini 3 & Veo 3.1.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
